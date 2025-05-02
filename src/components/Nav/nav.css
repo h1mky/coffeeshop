@@ -1,0 +1,4 @@
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  flex-basis: auto;
+}

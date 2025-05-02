@@ -1,0 +1,49 @@
+.main {
+  background: url("../../assets/main-page-bg.png") no-repeat;
+  background-size: cover;
+}
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1320px;
+  }
+}
+.main-title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 58px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.main-subtitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 35px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.main .btn-outline-light {
+  padding: 5px 45px;
+  margin-bottom: 200px;
+}
+.about {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+.about-title {
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+.about-text {
+  line-height: 20px;
+  max-width: 540px;
+  margin: 0 auto 25px;
+}
