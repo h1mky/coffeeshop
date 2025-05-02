@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <Nav color="black" />
-      <div className="image-coffee">
+      <div className="image-coffee mb-5">
         <img src={BeansLogoFooter} alt="Beans logo" />
       </div>
     </div>
