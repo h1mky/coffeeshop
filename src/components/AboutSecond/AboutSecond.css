@@ -1,0 +1,16 @@
+.about-text {
+  line-height: 20px;
+  max-width: 540px;
+  margin: 0 auto 25px;
+}
+.about-title {
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+}
+.about-image {
+  display: block;
+  margin: 15px auto;
+  max-width: 330px;
+}
