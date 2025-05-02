@@ -1,7 +1,3 @@
-.coffee-page__inner {
-  background: url("../../assets/bg-second.jpg") no-repeat;
-  background-size: cover;
-}
 .coffee-page__title {
   margin-bottom: 80px;
   font-weight: 700;

@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 const OurCoffee = () => {
   return (
     <>
-      <HeaderSecond />
+      <HeaderSecond page="about" />
       <AboutSecond />
       <CoffeeList />
       <Footer />
