@@ -1,0 +1,35 @@
+.footer .navbar {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer .navbar .container-fluid {
+  justify-content: center;
+}
+
+.footer .navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+.footer .navbar .nav-item .nav-link {
+  color: #000;
+}
+
+.footer .navbar .nav-item .nav-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .footer .navbar {
+    display: none;
+  }
+
+  .footer .image-coffee {
+    margin-top: 35px;
+  }
+}

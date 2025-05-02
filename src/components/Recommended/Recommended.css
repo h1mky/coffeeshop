@@ -1,0 +1,58 @@
+.coffee-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 220px;
+
+  padding: 15px 20px;
+  margin-bottom: 40px;
+
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+
+.coffee-card:hover {
+  transform: translateY(-5px);
+}
+
+.coffee-card__img {
+  width: 100%;
+  max-width: 151px;
+  min-height: 130px;
+
+  margin: 0 auto 15px;
+}
+
+.coffee-card__title,
+.coffee-card__price,
+.coffee-card__country {
+  font-weight: 400;
+  font-size: 14px;
+
+  margin-bottom: 10px;
+}
+
+.coffee-card__price {
+  font-weight: 700;
+  text-align: right;
+}
+
+.coffee-card__country {
+  text-align: right;
+}
+.recommended {
+  background: url("../../assets/rec-bg.png");
+  background-size: cover;
+  padding-top: 80px;
+  padding-bottom: 110px;
+}
+.recommended-title {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  margin-bottom: 40px;
+}

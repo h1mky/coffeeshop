@@ -1,29 +1,47 @@
-import HeaderBeans from "../../assets/coffee-beans-header.png";
+import { Link } from "react-router-dom";
 
-import "../Nav/nav.css";
-const Nav = () => {
+import BeansFooter from "../../assets/Beans-footer.png";
+import BeansHeader from "../../assets/coffee-beans-header.png";
+
+import "./nav.css";
+
+const Nav = ({ color = "white" }) => {
+  const imgSrc = color === "black" ? BeansFooter : BeansHeader;
+  const textClass = color === "black" ? "text-dark" : "text-light";
+
   return (
-    <nav className="navbar navbar-light nav-bar-expand-lg">
+    <nav className="navbar navbar-light navbar-expand-lg">
       <div className="container-fluid">
-        <a className="navbar-brand">
-          <img src={HeaderBeans} alt="coffee-beans" />
-        </a>
-        <div id="navbarNavDropdown" className="collapse navbar-collapse ">
+        <Link className="navbar-brand" to="/">
+          <img src={imgSrc} alt="Coffee beans" />
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <Link className={`nav-link ${textClass}`} to="/">
                 Coffee house
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
+              <Link className={`nav-link ${textClass}`} to="/coffee">
                 Our coffee
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="" className="nav-link">
-                for your pleasure
-              </a>
+              <Link className={`nav-link ${textClass}`} to="/goods">
+                For your pleasure
+              </Link>
             </li>
           </ul>
         </div>

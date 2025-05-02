@@ -12,7 +12,7 @@ const HeaderMain = () => {
         <div className="container text-center">
           <div className="row">
             <div className="col">
-              <Nav />
+              <Nav color="white" />
               <h1 className="main-title">Everything You Love About Coffee</h1>
               <div className="image-coffee">
                 <img src={BeansLogoHeader} alt="Beans Logo" />

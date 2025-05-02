@@ -2,3 +2,13 @@
   display: flex !important;
   flex-basis: auto;
 }
+.navbar {
+  margin-top: 50px;
+  margin-bottom: 105px;
+}
+.navbar .nav-item .nav-link {
+  font-size: 12px;
+  line-height: 17px;
+  color: #fff;
+  transition: color 0.2s linear;
+}
