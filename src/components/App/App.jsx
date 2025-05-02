@@ -1,12 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import MainPage from "../pages/MainPage";
-import { BrowserRouter as Router } from "react-router-dom";
 import OurCoffee from "../pages/OurCoffee";
 
 const App = () => {
   return (
     <Router>
-      <MainPage />
-      <OurCoffee />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+
+        <Route path="/coffee" element={<OurCoffee />} />
+      </Routes>
     </Router>
   );
 };
