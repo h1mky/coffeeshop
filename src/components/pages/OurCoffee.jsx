@@ -1,11 +1,15 @@
 import HeaderSecond from "../HeaderSecond/HeaderSecond";
 import AboutSecond from "../AboutSecond/AboutSecond";
+import CoffeeList from "../CofeeList/CoffeeList";
+import Footer from "../Footer/Footer";
 
 const OurCoffee = () => {
   return (
     <>
       <HeaderSecond />
       <AboutSecond />
+      <CoffeeList />
+      <Footer />
     </>
   );
 };
