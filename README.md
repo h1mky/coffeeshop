@@ -1,12 +1,13 @@
-# React + Vite
+## About the Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a frontend-only React project with no backend integration.
 
-Currently, two official plugins are available:
+All state is stored locally in Redux and loaded synchronously.  
+Because there's no server communication, lifecycle hooks like `useEffect` are used minimally.  
+If the project included backend interaction, I would make more extensive use of lifecycle hooks for:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- fetching data when components mount (`useEffect`)
+- handling async requests (e.g., using `createAsyncThunk`)
+- subscribing to events or cleaning up resources
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Since there’s no backend, most components simply read data from Redux and render it without side effects.
