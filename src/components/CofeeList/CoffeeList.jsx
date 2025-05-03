@@ -96,6 +96,7 @@ const CoffeeList = ({ withFilters = true }) => {
               country={item.country}
               price={item.price}
               img={item.src}
+              id={item.id}
             />
           ))}
         </div>

@@ -5,6 +5,7 @@ import store from "../../redux/store";
 import MainPage from "../pages/MainPage";
 import OurCoffee from "../pages/OurCoffee";
 import Goods from "../pages/Goods";
+import CoffeePage from "../pages/CofeePage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
 
           <Route path="/coffee" element={<OurCoffee />} />
           <Route path="goods" element={<Goods />} />
+          <Route path="/coffee/:id" element={<CoffeePage />} />
         </Routes>
       </Router>
     </Provider>

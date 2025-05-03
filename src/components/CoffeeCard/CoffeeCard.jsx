@@ -1,10 +1,8 @@
-// components/CoffeeCard/CoffeeCard.jsx
+import { Link } from "react-router-dom";
 
-import coffeeImg from "../../assets/coffee-img.jpg";
-
-const CoffeeCard = ({ name, country, price, img }) => {
+const CoffeeCard = ({ name, country, price, img, id }) => {
   return (
-    <a href="#">
+    <Link to={`/coffee/${id}`}>
       <div className="coffee-card">
         <img src={img} alt="coffee img" className="coffee-card__img" />
         <div className="coffee-card__body">
@@ -13,7 +11,7 @@ const CoffeeCard = ({ name, country, price, img }) => {
           <p className="coffee-card__price">{price}$</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
