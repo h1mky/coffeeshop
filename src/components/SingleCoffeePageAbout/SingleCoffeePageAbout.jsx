@@ -26,7 +26,7 @@ const SingleCoffeePageAbout = () => {
                 />
               </div>
 
-              <div className="col-12 col-md-6 about-content text-center">
+              <div className="col-12 col-md-6 about-content text-left">
                 <h2 className="about-title">About it</h2>
                 <div className="image-coffee">
                   <img src={beansLogo} alt="beans logo" />
@@ -36,7 +36,7 @@ const SingleCoffeePageAbout = () => {
                   <p className="about-text">
                     description: {coffeeData.description}
                   </p>
-                  <p className="mt-3 about-text">
+                  <p className="mt-3 about-text ">
                     Price:{" "}
                     <span className="fw-bold fs-3">{coffeeData.price}$</span>
                   </p>
