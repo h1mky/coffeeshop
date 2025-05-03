@@ -2,6 +2,7 @@ import Nav from "../Nav/Nav";
 
 import BeansLogoHeader from "../../assets/Beans-logo.svg";
 import BeansLogoFooter from "../../assets/Beans-logo-footer.svg";
+import { Link } from "react-router-dom";
 
 import "../HeaderMain/headerMain.css";
 
@@ -20,9 +21,9 @@ const HeaderMain = () => {
                   We makes every day full of energy and taste
                 </h2>
                 <h2 className="main-subtitle">Want to try our beans?</h2>
-                <a href="" className="btn btn-outline-light">
+                <Link to="/coffee" className="btn btn-outline-light">
                   More
-                </a>
+                </Link>
               </div>
             </div>
           </div>
