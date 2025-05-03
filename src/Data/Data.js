@@ -1,7 +1,11 @@
+import img1 from "./images/815O9ktyfUL.png";
+import img2 from "./images/91Ryk2gKejL.png";
+import img3 from "./images/71qBQnpQFYL.png";
+
 export const data = [
   {
     id: 0,
-    src: "./images/815O9ktyfUL.png",
+    src: img1,
     name: "Solimo Coffee Beans 2 kg",
     country: "Brazil",
     price: 10.73,
@@ -11,7 +15,7 @@ export const data = [
   },
   {
     id: 1,
-    src: "./images/91Ryk2gKejL.png",
+    src: img2,
     name: "Presto Coffee Beans 1 kg",
     country: "Columbia",
     price: "15.99",
@@ -21,7 +25,7 @@ export const data = [
   },
   {
     id: 2,
-    src: "./images/71qBQnpQFYL.png",
+    src: img3,
     name: "AROMISTICO Coffee 1 kg",
     country: "Kenya",
     price: 6.99,
@@ -31,7 +35,7 @@ export const data = [
   },
   {
     id: 3,
-    src: "./images/71qBQnpQFYL.png",
+    src: img3,
     name: "AROMISTICO Coffee 1 kg",
     country: "Brazil",
     price: 8.99,
@@ -41,7 +45,7 @@ export const data = [
   },
   {
     id: 4,
-    src: "./images/71qBQnpQFYL.png",
+    src: img3,
     name: "AROMISTICO Coffee 1 kg",
     country: "Kenya",
     price: 10.32,
@@ -51,7 +55,7 @@ export const data = [
   },
   {
     id: 5,
-    src: "./images/71qBQnpQFYL.png",
+    src: img3,
     name: "AROMISTICO Coffee 1 kg",
     country: "Columbia",
     price: 5.99,
