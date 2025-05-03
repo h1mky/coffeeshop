@@ -1,23 +1,26 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import { Suspense, lazy } from "react";
 import store from "../../redux/store";
 
-import MainPage from "../pages/MainPage";
-import OurCoffee from "../pages/OurCoffee";
-import Goods from "../pages/Goods";
-import CoffeePage from "../pages/CofeePage";
+// ленивый импорт страниц
+const MainPage = lazy(() => import("../pages/MainPage"));
+const OurCoffee = lazy(() => import("../pages/OurCoffee"));
+const Goods = lazy(() => import("../pages/Goods"));
+const CoffeePage = lazy(() => import("../pages/CofeePage"));
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-
-          <Route path="/coffee" element={<OurCoffee />} />
-          <Route path="goods" element={<Goods />} />
-          <Route path="/coffee/:id" element={<CoffeePage />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/coffee" element={<OurCoffee />} />
+            <Route path="goods" element={<Goods />} />
+            <Route path="/coffee/:id" element={<CoffeePage />} />
+          </Routes>
+        </Suspense>
       </Router>
     </Provider>
   );
