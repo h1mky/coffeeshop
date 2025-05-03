@@ -9,6 +9,8 @@ import {
 } from "../../redux/filterSlice/filterSlice";
 import { useDispatch } from "react-redux";
 
+import { Helmet } from "react-helmet";
+
 const Goods = () => {
   const dispatch = useDispatch();
 
@@ -18,6 +20,10 @@ const Goods = () => {
   }, []);
   return (
     <>
+      <Helmet>
+        <meta name="description" content={`page about our goods`} />
+        <title>Our goods</title>
+      </Helmet>
       <HeaderSecond page="goods" text="goods" />
       <AboutSecond photo="goods" />
       <CoffeeList withFilters={false} />

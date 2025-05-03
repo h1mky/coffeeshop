@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import beansLogo from "../../assets/Beans-logo-footer.svg";
 import { useSelector } from "react-redux";
 
+import { Helmet } from "react-helmet";
+
 const SingleCoffeePageAbout = () => {
   const { id } = useParams();
   const coffeeId = Number(id);
@@ -14,6 +16,10 @@ const SingleCoffeePageAbout = () => {
 
   return (
     <div className="about">
+      <Helmet>
+        <meta name="description" content={`${coffeeData.name} coffee apge`} />
+        <title>{coffeeData.name}</title>
+      </Helmet>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-8">
@@ -37,7 +43,7 @@ const SingleCoffeePageAbout = () => {
                     description: {coffeeData.description}
                   </p>
                   <p className="mt-3 about-text ">
-                    Price:{" "}
+                    Price:
                     <span className="fw-bold fs-3">{coffeeData.price}$</span>
                   </p>
                 </div>
