@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const RecommendedCard = ({ item }) => {
   return (
-    <a href="#">
+    <Link to={`/coffee/${item.id}`}>
       <div className="coffee-card">
         <img src={item.src} alt={item.name} className="coffee-card__img" />
         <div className="coffee-card__body">
@@ -9,7 +11,7 @@ const RecommendedCard = ({ item }) => {
           <p className="coffee-card__price">{item.price}$</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
