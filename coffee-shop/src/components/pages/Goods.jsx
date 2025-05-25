@@ -4,14 +4,15 @@ import HeaderSecond from "../HeaderSecond/HeaderSecond";
 import AboutSecond from "../AboutSecond/AboutSecond";
 import CoffeeList from "../CoffeeList/CoffeeList";
 import Footer from "../Footer/Footer";
+import { useDispatch } from "react-redux";
 
 const Goods = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(setCurrentFilter(""));
-  //     dispatch(setSearchValue(""));
-  //   }, []);
+  useEffect(() => {
+    dispatch(setCurrentFilter(""));
+    dispatch(setSearchValue(""));
+  }, []);
   return (
     <>
       <Helmet>

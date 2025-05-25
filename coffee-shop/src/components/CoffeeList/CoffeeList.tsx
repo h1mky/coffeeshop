@@ -1,10 +1,24 @@
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import { fetchArticle } from "../../redux/arcticleSlice/slice";
 import CoffeeCard from "../CoffeeCard/CoffeeCard";
+import "../CoffeeList/CoffeeList.css";
 
-interface IFilters {
-  withFilters?: boolean;
-}
+import type { AppDispatch } from "../../redux/store";
+import { selectArticles, selectArticlesLoading } from "../../redux/selectors";
 
-const CoffeeList: React.FC<IFilters> = ({ withFilters = true }) => {
+const CoffeeList = ({ withFilters = true }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  // Прямое обращение к store без селекторов
+  const articles = useSelector(selectArticles);
+  const loading = useSelector(selectArticlesLoading);
+
+  useEffect(() => {
+    dispatch(fetchArticle());
+  }, [dispatch]);
+
   return (
     <div className="container text-center pt-3">
       <div className="row align-items-center justify-content-center">
@@ -52,9 +66,18 @@ const CoffeeList: React.FC<IFilters> = ({ withFilters = true }) => {
         </div>
 
         <div className="d-flex flex-wrap justify-content-center wrapper">
-          <CoffeeCard name={""} country={""} price={0} img={""} id={0} />
-          <CoffeeCard name={""} country={""} price={0} img={""} id={0} />
-          <CoffeeCard name={""} country={""} price={0} img={""} id={0} />
+          {loading && <div>Loading...</div>}
+          {!loading &&
+            articles?.map((item) => (
+              <CoffeeCard
+                key={item.id}
+                name={item.coffeeName}
+                country={item.country}
+                price={item.price}
+                img={item.img}
+                id={item.id}
+              />
+            ))}
         </div>
       </div>
     </div>
