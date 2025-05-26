@@ -8,11 +8,13 @@ const OurCoffee = lazy(() => import("../pages/OurCoffee"));
 const Goods = lazy(() => import("../pages/Goods"));
 const CoffeePage = lazy(() => import("../pages/CoffeePage"));
 
+import { SyncLoader } from "react-spinners";
+
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SyncLoader color="#6f4e37" />}>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/coffee" element={<OurCoffee />} />

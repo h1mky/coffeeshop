@@ -17,6 +17,8 @@ import {
   selectCurrentFilter,
 } from "../../redux/selectors";
 
+import SyncLoader from "react-spinners/SyncLoader";
+
 const CoffeeList = ({ withFilters = true }) => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -120,7 +122,7 @@ const CoffeeList = ({ withFilters = true }) => {
         </div>
 
         <div className="d-flex flex-wrap justify-content-center wrapper">
-          {loading && <div>Loading...</div>}
+          {loading && <SyncLoader color="#6f4e37" />}
           {!loading && filteredArticles.length === 0 && !loading && (
             <div className="no-results">
               <p>No coffee found matching your criteria</p>
