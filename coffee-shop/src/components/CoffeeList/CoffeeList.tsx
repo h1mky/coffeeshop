@@ -2,22 +2,65 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 import { fetchArticle } from "../../redux/arcticleSlice/slice";
+import {
+  setSearchValue,
+  setCurrentFilter,
+} from "../../redux/filterSlice/filterSlice";
 import CoffeeCard from "../CoffeeCard/CoffeeCard";
 import "../CoffeeList/CoffeeList.css";
 
 import type { AppDispatch } from "../../redux/store";
-import { selectArticles, selectArticlesLoading } from "../../redux/selectors";
+import {
+  selectArticles,
+  selectArticlesLoading,
+  selectSearchValue,
+  selectCurrentFilter,
+} from "../../redux/selectors";
 
 const CoffeeList = ({ withFilters = true }) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  // Прямое обращение к store без селекторов
   const articles = useSelector(selectArticles);
   const loading = useSelector(selectArticlesLoading);
+  const searchValue = useSelector(selectSearchValue);
+  const currentFilter = useSelector(selectCurrentFilter);
 
   useEffect(() => {
     dispatch(fetchArticle());
   }, [dispatch]);
+
+  const getFilteredArticles = () => {
+    if (!articles) return [];
+
+    let filtered = [...articles];
+
+    if (searchValue) {
+      filtered = filtered.filter(
+        (article) =>
+          article.coffeeName.toLowerCase().includes(searchValue) ||
+          article.country.toLowerCase().includes(searchValue)
+      );
+    }
+
+    if (currentFilter) {
+      filtered = filtered.filter(
+        (article) =>
+          article.country.toLowerCase() === currentFilter.toLowerCase()
+      );
+    }
+
+    return filtered;
+  };
+
+  const handleSearchChange = (e: any) => {
+    dispatch(setSearchValue(e.target.value));
+  };
+
+  const handleFilterClick = (country: string) => {
+    dispatch(setCurrentFilter(country));
+  };
+
+  const filteredArticles = getFilteredArticles();
 
   return (
     <div className="container text-center pt-3">
@@ -36,26 +79,37 @@ const CoffeeList = ({ withFilters = true }) => {
                       className="form-control search-input"
                       placeholder="start typing here..."
                       id="search-input"
+                      value={searchValue}
+                      onChange={handleSearchChange}
                     />
                   </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-7 col-lg-6 filter-group">
                   <label htmlFor="filter-button">Or filter</label>
                   <button
-                    className="btn btn-light filter-btn"
+                    className={`btn filter-btn ${
+                      currentFilter === "Brazil" ? "btn-primary" : "btn-light"
+                    }`}
                     id="filter-brazil"
+                    onClick={() => handleFilterClick("Brazil")}
                   >
                     Brazil
                   </button>
                   <button
-                    className="btn btn-light filter-btn"
+                    className={`btn filter-btn ${
+                      currentFilter === "Kenya" ? "btn-primary" : "btn-light"
+                    }`}
                     id="filter-kenya"
+                    onClick={() => handleFilterClick("Kenya")}
                   >
                     Kenya
                   </button>
                   <button
-                    className="btn btn-light filter-btn"
+                    className={`btn filter-btn ${
+                      currentFilter === "Columbia" ? "btn-primary" : "btn-light"
+                    }`}
                     id="filter-columbia"
+                    onClick={() => handleFilterClick("Columbia")}
                   >
                     Columbia
                   </button>
@@ -67,8 +121,13 @@ const CoffeeList = ({ withFilters = true }) => {
 
         <div className="d-flex flex-wrap justify-content-center wrapper">
           {loading && <div>Loading...</div>}
+          {!loading && filteredArticles.length === 0 && !loading && (
+            <div className="no-results">
+              <p>No coffee found matching your criteria</p>
+            </div>
+          )}
           {!loading &&
-            articles?.map((item) => (
+            filteredArticles.map((item) => (
               <CoffeeCard
                 key={item.id}
                 name={item.coffeeName}

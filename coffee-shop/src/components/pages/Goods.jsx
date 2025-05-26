@@ -6,6 +6,13 @@ import CoffeeList from "../CoffeeList/CoffeeList";
 import Footer from "../Footer/Footer";
 import { useDispatch } from "react-redux";
 
+import { useEffect } from "react";
+
+import {
+  setSearchValue,
+  setCurrentFilter,
+} from "../../redux/filterSlice/filterSlice";
+
 const Goods = () => {
   const dispatch = useDispatch();
 
