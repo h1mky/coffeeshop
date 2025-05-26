@@ -2,7 +2,7 @@
 
 /* reset-css не поддерживается в обычном CSS напрямую — нужно вручную импортировать стили или использовать normalize.css */
 
-body {
+* {
   font-family: "Merienda", cursive !important;
   line-height: 1;
 }
