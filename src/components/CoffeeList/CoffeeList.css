@@ -35,3 +35,6 @@
   cursor: pointer;
   transition: transform 0.2s linear;
 }
+.btn-fillter_active {
+  background: #b9815a;
+}

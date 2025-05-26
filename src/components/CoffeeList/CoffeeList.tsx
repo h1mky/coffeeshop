@@ -31,6 +31,11 @@ const CoffeeList = ({ withFilters = true }) => {
     dispatch(fetchArticle());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(setCurrentFilter(""));
+    dispatch(setSearchValue(""));
+  }, []);
+
   const getFilteredArticles = () => {
     if (!articles) return [];
 
@@ -90,7 +95,9 @@ const CoffeeList = ({ withFilters = true }) => {
                   <label htmlFor="filter-button">Or filter</label>
                   <button
                     className={`btn filter-btn ${
-                      currentFilter === "Brazil" ? "btn-primary" : "btn-light"
+                      currentFilter === "Brazil"
+                        ? "btn-fillter_active"
+                        : "btn-light"
                     }`}
                     id="filter-brazil"
                     onClick={() => handleFilterClick("Brazil")}
@@ -99,7 +106,9 @@ const CoffeeList = ({ withFilters = true }) => {
                   </button>
                   <button
                     className={`btn filter-btn ${
-                      currentFilter === "Kenya" ? "btn-primary" : "btn-light"
+                      currentFilter === "Kenya"
+                        ? "btn-fillter_active"
+                        : "btn-light"
                     }`}
                     id="filter-kenya"
                     onClick={() => handleFilterClick("Kenya")}
@@ -108,7 +117,9 @@ const CoffeeList = ({ withFilters = true }) => {
                   </button>
                   <button
                     className={`btn filter-btn ${
-                      currentFilter === "Columbia" ? "btn-primary" : "btn-light"
+                      currentFilter === "Columbia"
+                        ? "btn-fillter_active"
+                        : "btn-light"
                     }`}
                     id="filter-columbia"
                     onClick={() => handleFilterClick("Columbia")}
