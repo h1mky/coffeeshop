@@ -6,8 +6,13 @@ import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../../redux/arcticleSlice/slice";
 import { useSelector, useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
-import { selectSelectedArticle } from "../../redux/selectors";
+import {
+  selectArticlesLoading,
+  selectSelectedArticle,
+} from "../../redux/selectors";
 import { useEffect } from "react";
+
+import NotFound404 from "../pages/NotFound404/NotFound404";
 
 const SingleCoffeePageAbout = () => {
   const { id } = useParams();
@@ -16,12 +21,17 @@ const SingleCoffeePageAbout = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const singleArticle = useSelector(selectSelectedArticle);
+  const loading = useSelector(selectArticlesLoading);
 
   useEffect(() => {
     if (!isNaN(numericId)) {
       dispatch(fetchArticleById(numericId));
     }
   }, [numericId]);
+
+  if (!singleArticle && !loading) {
+    return <NotFound404 />;
+  }
 
   return (
     <>
