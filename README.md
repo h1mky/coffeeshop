@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+# ☕ Coffee Shop SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page application for a coffee e-commerce store, built with React + Redux Toolkit + TypeScript.
 
-Currently, two official plugins are available:
+## 🔧 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 (with support for Server Components)
+- Redux Toolkit + createAsyncThunk
+- React Router DOM
+- TypeScript
+- CSS (Bootstrap + custom styles)
+- REST API (requests via a custom HTTP hook)
 
-## Expanding the ESLint configuration
+## 📄 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Main Page** — includes banners and "Our Coffee" section.
+- **Coffee Catalog** — displays coffee cards, with search and country filter (Brazil, Kenya, Columbia).
+- **Dynamic Coffee Page** — a detail page for each coffee product, loaded by ID.
+- **Async Data Loading** — using `createAsyncThunk` from Redux Toolkit.
+- **Redux Filters** — filter and search state managed in the Redux store.
+- **Helmet** — manages meta tags and dynamic titles (partially limited by React 19).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📈 In Progress
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🔐 **Admin Panel** — for adding/removing/editing coffee items.
+- 🛒 Cart and checkout flow
+- 🧪 Component and Redux unit testing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ Getting Started
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
+npm run dev
 ```

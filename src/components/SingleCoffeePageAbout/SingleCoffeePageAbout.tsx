@@ -56,7 +56,7 @@ const SingleCoffeePageAbout = () => {
                       description: {singleArticle?.description}
                     </p>
                     <p className="mt-3 about-text ">
-                      Price:
+                      Price: {}
                       <span className="fw-bold fs-3">
                         {singleArticle?.price}$
                       </span>
