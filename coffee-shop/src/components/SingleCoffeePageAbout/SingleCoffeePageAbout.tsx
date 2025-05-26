@@ -1,11 +1,36 @@
 import { Helmet } from "react-helmet";
 
+import beansLogo from "../../assets/Beans-logo-footer.svg";
+
+import { useParams } from "react-router-dom";
+import { fetchArticleById } from "../../redux/arcticleSlice/slice";
+import { useSelector, useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { selectSelectedArticle } from "../../redux/selectors";
+import { useEffect } from "react";
+
 const SingleCoffeePageAbout = () => {
+  const { id } = useParams();
+
+  const numericId = Number(id);
+
+  const dispatch = useDispatch<AppDispatch>();
+  const singleArticle = useSelector(selectSelectedArticle);
+
+  useEffect(() => {
+    if (!isNaN(numericId)) {
+      dispatch(fetchArticleById(numericId));
+    }
+  }, [numericId]);
+
   return (
     <div className="about">
       <Helmet>
-        {/* <meta name="description" content={`${coffeeData.name} coffee apge`} /> */}
-        {/* <title>{coffeeData.name}</title> */}
+        <meta
+          name="description"
+          content={`${singleArticle?.coffeeName} coffee apge`}
+        />
+        <title>{singleArticle?.coffeeName}</title>
       </Helmet>
       <div className="container">
         <div className="row justify-content-center">
@@ -13,8 +38,8 @@ const SingleCoffeePageAbout = () => {
             <div className="row align-items-center">
               <div className="col-12 col-md-6 about-content text-center">
                 <img
-                  //   src={coffeeData.src}
-                  //   alt={coffeeData.name}
+                  src={singleArticle?.img}
+                  alt={singleArticle?.coffeeName}
                   className="img-fluid"
                 />
               </div>
@@ -22,16 +47,18 @@ const SingleCoffeePageAbout = () => {
               <div className="col-12 col-md-6 about-content text-left">
                 <h2 className="about-title">About it</h2>
                 <div className="image-coffee">
-                  {/* <img src={beansLogo} alt="beans logo" /> */}
+                  <img src={beansLogo} alt="beans logo" />
                   <p className="about-text pb-3">
-                    {/* country: {coffeeData.country} */}
+                    country: {singleArticle?.country}
                   </p>
                   <p className="about-text">
-                    {/* description: {coffeeData.description} */}
+                    description: {singleArticle?.description}
                   </p>
                   <p className="mt-3 about-text ">
                     Price:
-                    {/* <span className="fw-bold fs-3">{coffeeData.price}$</span> */}
+                    <span className="fw-bold fs-3">
+                      {singleArticle?.price}$
+                    </span>
                   </p>
                 </div>
               </div>
