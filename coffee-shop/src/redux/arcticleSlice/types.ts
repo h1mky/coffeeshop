@@ -5,7 +5,7 @@ export interface Article {
   country: string;
   price: number;
   recommended: boolean;
-  desrcription: string;
+  description: string;
   createdAt: Date;
 }
 

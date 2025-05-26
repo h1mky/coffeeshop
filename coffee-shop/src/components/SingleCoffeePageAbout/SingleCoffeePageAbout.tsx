@@ -24,49 +24,51 @@ const SingleCoffeePageAbout = () => {
   }, [numericId]);
 
   return (
-    <div className="about">
+    <>
       <Helmet>
         <meta
           name="description"
-          content={`${singleArticle?.coffeeName} coffee apge`}
+          content={`${singleArticle?.coffeeName} coffee page`}
         />
         <title>{singleArticle?.coffeeName}</title>
       </Helmet>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-lg-8">
-            <div className="row align-items-center">
-              <div className="col-12 col-md-6 about-content text-center">
-                <img
-                  src={singleArticle?.img}
-                  alt={singleArticle?.coffeeName}
-                  className="img-fluid"
-                />
-              </div>
+      <div className="about">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12 col-lg-8">
+              <div className="row align-items-center">
+                <div className="col-12 col-md-6 about-content text-center">
+                  <img
+                    src={singleArticle?.img}
+                    alt={singleArticle?.coffeeName}
+                    className="img-fluid"
+                  />
+                </div>
 
-              <div className="col-12 col-md-6 about-content text-left">
-                <h2 className="about-title">About it</h2>
-                <div className="image-coffee">
-                  <img src={beansLogo} alt="beans logo" />
-                  <p className="about-text pb-3">
-                    country: {singleArticle?.country}
-                  </p>
-                  <p className="about-text">
-                    description: {singleArticle?.description}
-                  </p>
-                  <p className="mt-3 about-text ">
-                    Price:
-                    <span className="fw-bold fs-3">
-                      {singleArticle?.price}$
-                    </span>
-                  </p>
+                <div className="col-12 col-md-6 about-content text-left">
+                  <h2 className="about-title">About it</h2>
+                  <div className="image-coffee">
+                    <img src={beansLogo} alt="beans logo" />
+                    <p className="about-text pb-3">
+                      country: {singleArticle?.country}
+                    </p>
+                    <p className="about-text">
+                      description: {singleArticle?.description}
+                    </p>
+                    <p className="mt-3 about-text ">
+                      Price:
+                      <span className="fw-bold fs-3">
+                        {singleArticle?.price}$
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
