@@ -14,7 +14,20 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Suspense fallback={<SyncLoader color="#6f4e37" />}>
+        <Suspense
+          fallback={
+            <div
+              style={{
+                height: "100vh", // Заполнить весь экран
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <SyncLoader color="#6f4e37" />
+            </div>
+          }
+        >
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/coffee" element={<OurCoffee />} />
