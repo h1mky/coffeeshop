@@ -14,6 +14,8 @@ import { useEffect } from "react";
 
 import NotFound404 from "../pages/NotFound404/NotFound404";
 
+import { SyncLoader } from "react-spinners";
+
 const SingleCoffeePageAbout = () => {
   const { id } = useParams();
 
@@ -31,6 +33,17 @@ const SingleCoffeePageAbout = () => {
 
   if (!singleArticle && !loading) {
     return <NotFound404 />;
+  }
+
+  if (loading || !singleArticle) {
+    return (
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ minHeight: "300px" }}
+      >
+        <SyncLoader color="#6f4e37" />
+      </div>
+    );
   }
 
   return (
