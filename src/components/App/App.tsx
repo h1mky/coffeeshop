@@ -18,13 +18,13 @@ const App = () => {
           fallback={
             <div
               style={{
-                height: "100vh", // Заполнить весь экран
+                height: "100vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <SyncLoader color="#6f4e37" />
+              <SyncLoader color="#6f4e37" size={40} />
             </div>
           }
         >
