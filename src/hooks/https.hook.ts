@@ -25,3 +25,29 @@ export const request = async (
     );
   }
 };
+
+export const post = async (
+  url: string,
+  method = "POST",
+  body = null,
+  headers = {}
+) => {
+  try {
+    const response = await axios({
+      url,
+      method,
+      data: body,
+      headers: { "Content-Type": "application/json", ...headers },
+    });
+
+    return response.data;
+  } catch (e) {
+    const error = e as AxiosError;
+
+    throw new Error(
+      `Could not fetch ${url}, status: ${
+        error.response?.status || error.message
+      }`
+    );
+  }
+};
