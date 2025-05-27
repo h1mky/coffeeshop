@@ -5,7 +5,6 @@ import FormPanel from "../adminPage/FormPanel";
 const AdminPage = () => {
   return (
     <>
-      <Nav color="white" />
       <FormPanel />
       <Footer />
     </>

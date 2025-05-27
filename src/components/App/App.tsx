@@ -9,7 +9,7 @@ const MainPage = lazy(() => import("../pages/MainPage"));
 const OurCoffee = lazy(() => import("../pages/OurCoffee"));
 const Goods = lazy(() => import("../pages/Goods"));
 const CoffeePage = lazy(() => import("../pages/CoffeePage"));
-const AdminPage = lazy(() => import("../../adminPage/FormPanel"));
+const AdminPage = lazy(() => import("../../adminPage/AdminPage"));
 
 import { SyncLoader } from "react-spinners";
 
