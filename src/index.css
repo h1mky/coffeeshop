@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap");
 
-/* reset-css не поддерживается в обычном CSS напрямую — нужно вручную импортировать стили или использовать normalize.css */
-
 * {
   font-family: "Merienda", cursive !important;
   line-height: 1;
