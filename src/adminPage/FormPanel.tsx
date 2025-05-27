@@ -2,6 +2,13 @@ import "../adminPage/AdminPage.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import { request } from "../hooks/https.hook";
+
+interface RegisterData {
+  username: string;
+  password: string;
+}
+
 const FormPanel = () => {
   const validationSchema = Yup.object({
     username: Yup.string()
@@ -12,6 +19,13 @@ const FormPanel = () => {
       .required("This field is required"),
   });
 
+  const onSubmitHandler = (values: RegisterData) => {
+    request("http://localhost:3000/admin", "POST", JSON.stringify(values), {
+      "Content-Type": "application/json",
+    })
+      .then((res) => console.log(res, "Отправка успешна"))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container">
       <div className="form-container">
@@ -19,9 +33,7 @@ const FormPanel = () => {
         <Formik
           initialValues={{ username: "", password: "" }}
           validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log("Form values", values);
-          }}
+          onSubmit={onSubmitHandler}
         >
           <Form>
             <div className="mb-3">
