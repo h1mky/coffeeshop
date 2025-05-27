@@ -9,6 +9,13 @@ export const selectArticlesLoading = (state: RootState) =>
   state.articles.loading;
 export const selectArticlesError = (state: RootState) => state.articles.error;
 
+// filters
+
 export const selectSearchValue = (state: RootState) => state.filter.searchValue;
 export const selectCurrentFilter = (state: RootState) =>
   state.filter.currentFilter;
+
+//admin
+
+export const selectisAuthorized = (state: RootState) =>
+  state.admin.isAuthorized;

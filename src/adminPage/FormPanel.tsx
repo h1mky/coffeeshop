@@ -2,9 +2,9 @@ import "../adminPage/AdminPage.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-// import { useNavigate } from "react-router-dom";
-
 import { request } from "../hooks/https.hook";
+import { useDispatch } from "react-redux";
+import { setisAuthorized } from "../redux/adminRedux/adminSlice";
 
 interface RegisterData {
   username: string;
@@ -12,7 +12,7 @@ interface RegisterData {
 }
 
 const FormPanel = () => {
-  // const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
     username: Yup.string()
@@ -36,6 +36,7 @@ const FormPanel = () => {
       .then((res) => {
         console.log(res, "Отправка успешна");
         if (res.status === 204) {
+          dispatch(setisAuthorized(true));
         }
       })
       .catch((err) => console.log(err));
