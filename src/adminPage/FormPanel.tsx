@@ -2,6 +2,8 @@ import "../adminPage/AdminPage.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+// import { useNavigate } from "react-router-dom";
+
 import { request } from "../hooks/https.hook";
 
 interface RegisterData {
@@ -10,6 +12,8 @@ interface RegisterData {
 }
 
 const FormPanel = () => {
+  // const navigate = useNavigate();
+
   const validationSchema = Yup.object({
     username: Yup.string()
       .min(4, "Min 4 symbols")
@@ -20,10 +24,20 @@ const FormPanel = () => {
   });
 
   const onSubmitHandler = (values: RegisterData) => {
-    request("http://localhost:3000/admin", "POST", JSON.stringify(values), {
-      "Content-Type": "application/json",
-    })
-      .then((res) => console.log(res, "Отправка успешна"))
+    request(
+      "http://localhost:3000/admin",
+      "POST",
+      JSON.stringify(values),
+      {
+        "Content-Type": "application/json",
+      },
+      true
+    )
+      .then((res) => {
+        console.log(res, "Отправка успешна");
+        if (res.status === 204) {
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (

@@ -4,7 +4,8 @@ export const request = async (
   url: string,
   method = "GET",
   body: string | null = null,
-  headers = {}
+  headers = {},
+  isReturnStatus: boolean = false
 ) => {
   try {
     const response = await axios({
@@ -13,6 +14,13 @@ export const request = async (
       data: body,
       headers: { "Content-Type": "application/json", ...headers },
     });
+
+    if (isReturnStatus === true) {
+      return {
+        data: response.data,
+        status: response.status,
+      };
+    }
 
     return response.data;
   } catch (e) {
