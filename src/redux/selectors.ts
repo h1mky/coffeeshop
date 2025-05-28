@@ -16,6 +16,3 @@ export const selectCurrentFilter = (state: RootState) =>
   state.filter.currentFilter;
 
 //admin
-
-export const selectisAuthorized = (state: RootState) =>
-  state.admin.isAuthorized;
