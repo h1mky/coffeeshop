@@ -78,7 +78,7 @@ const CoffeeList = ({ withFilters = true }) => {
               <div className="row align-items-center justify-content-center">
                 <div className="col-12 col-sm-12 col-md-6 col-lg-6 search">
                   <div className="d-flex justify-content-center align-items-center search-group">
-                    <label htmlFor="search-input" className="search-label">
+                    <label htmlFor="search-input" className="search-label mr-2">
                       Looking for
                     </label>
                     <input
@@ -91,8 +91,10 @@ const CoffeeList = ({ withFilters = true }) => {
                     />
                   </div>
                 </div>
-                <div className="col-12 col-sm-12 col-md-7 col-lg-6 filter-group">
-                  <label htmlFor="filter-button">Or filter</label>
+                <div className="col-12 col-sm-12 col-md-7 col-lg-6 filter-group ">
+                  <label htmlFor="filter-button" className="mx-4">
+                    Or filter
+                  </label>
                   <button
                     className={`btn filter-btn ${
                       currentFilter === "Brazil"
