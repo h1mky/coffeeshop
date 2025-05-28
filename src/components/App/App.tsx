@@ -9,7 +9,6 @@ const MainPage = lazy(() => import("../pages/MainPage"));
 const OurCoffee = lazy(() => import("../pages/OurCoffee"));
 const Goods = lazy(() => import("../pages/Goods"));
 const CoffeePage = lazy(() => import("../pages/CoffeePage"));
-const AdminPage = lazy(() => import("../../adminPage/AdminPage"));
 
 import { SyncLoader } from "react-spinners";
 
@@ -37,7 +36,6 @@ const App = () => {
             <Route path="goods" element={<Goods />} />
             <Route path="/coffee/:id" element={<CoffeePage />} />
             <Route path="*" element={<NotFound404 />} />
-            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </Suspense>
       </Router>

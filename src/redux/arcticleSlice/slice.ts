@@ -8,13 +8,18 @@ import type { Article, ArticlesState } from "./types";
 export const fetchArticle = createAsyncThunk<Article[]>(
   "article/fetchArticle",
   async () => {
-    return await request("http://localhost:3000/cards");
+    return await request(
+      "https://api.render.com/deploy/srv-d0revlmmcj7s7387dg9g?key=l5fJAr2pN0M/cards"
+    );
   }
 );
 
 export const fetchArticleById = createAsyncThunk<Article, number>(
   "articles/fetchById",
-  async (id) => await request(`http://localhost:3000/cards/${id}`)
+  async (id) =>
+    await request(
+      `https://api.render.com/deploy/srv-d0revlmmcj7s7387dg9g?key=l5fJAr2pN0M/${id}`
+    )
 );
 
 const initialState: ArticlesState = {
