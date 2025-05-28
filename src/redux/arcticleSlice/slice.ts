@@ -8,18 +8,13 @@ import type { Article, ArticlesState } from "./types";
 export const fetchArticle = createAsyncThunk<Article[]>(
   "article/fetchArticle",
   async () => {
-    return await request(
-      "https://api.render.com/deploy/srv-d0revlmmcj7s7387dg9g?key=l5fJAr2pN0M/cards"
-    );
+    return await request("https://coffee-shop-go.onrender.com/cards");
   }
 );
 
 export const fetchArticleById = createAsyncThunk<Article, number>(
   "articles/fetchById",
-  async (id) =>
-    await request(
-      `https://api.render.com/deploy/srv-d0revlmmcj7s7387dg9g?key=l5fJAr2pN0M/${id}`
-    )
+  async (id) => await request(`https://coffee-shop-go.onrender.com/cards/${id}`)
 );
 
 const initialState: ArticlesState = {
