@@ -1,7 +1,7 @@
 import Nav from "../Nav/Nav";
 import aboutBg from "../../assets/bg-second.jpg";
 import goodsBg from "../../assets/Goods-bg.png";
-import "../HeaderSecond/headerSecond.css";
+import "../HeaderSecond/HeaderSecond.css";
 
 interface PropsHeader {
   page: string;
