@@ -32,3 +32,6 @@ A single-page application for a coffee e-commerce store, built with React + Redu
 npm install
 npm run dev
 ```
+>### If you want to see the :
+>- [Template](https://www.figma.com/file/Iu4Lul87WvzdM5CXFwE4qtZ6/Coffee-shop?node-id=0%3A1&t=6azX4JyP11ZMPbsy-0)
+>- [Deploy](https://coffeeshop-vu2y.vercel.app/)
